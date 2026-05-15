@@ -50,6 +50,18 @@ class CalculadoraControllerTest {
         ResponseEntity<Object> responseEntity = this.calculadoraController.calcular(request);
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
     }
+
+    @Test
+    void calcular_genericException() {
+        CalculadoraRequest request = new CalculadoraRequest();
+        request.setN1(1.0);
+        request.setN2(1.0);
+        request.setOperation("+");
+        when(calculadoraService.calcular(anyString(), anyDouble(), anyDouble())).thenThrow(new RuntimeException("Generic Error"));
+        ResponseEntity<Object> responseEntity = this.calculadoraController.calcular(request);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, responseEntity.getStatusCode());
+        assertEquals("Generic Error", responseEntity.getBody());
+    }
     @Test
     void calcular_BadRequest() {
         CalculadoraRequest request = new CalculadoraRequest();
