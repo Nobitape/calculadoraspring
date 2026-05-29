@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Spring - Portal de Documentación</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Documentación interactiva de la Calculadora Spring Boot REST API con Swagger UI integrado.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  
+  <!-- Premium Font (Outfit for headings, Plus Jakarta Sans for body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Docsify Theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <!-- Custom Modern Design System -->
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      letter-spacing: -0.011em;
+      color: #1e293b;
+      background-color: #f8fafc;
+    }
+    
+    :root {
+      --theme-color: #4f46e5; /* Premium Indigo */
+      --text-color: #1e293b;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      background-color: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar > h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin: 1.5rem 0 1rem 0;
+    }
+    
+    .sidebar-nav li a {
+      font-weight: 500;
+      color: #64748b;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .sidebar-nav li a:hover {
+      color: #4f46e5;
+      background-color: #f1f5f9;
+      text-decoration: none;
+    }
+
+    .sidebar-nav li.active > a {
+      color: #4f46e5;
+      background-color: #e0e7ff !important;
+      font-weight: 600;
+      border-right: none;
+    }
+
+    .sidebar .sidebar-search {
+      background-color: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 15px 10px;
+    }
+
+    .search input {
+      border: 1px solid #cbd5e1 !important;
+      border-radius: 8px !important;
+      padding: 8px 12px !important;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search input:focus {
+      border-color: #4f46e5 !important;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
+    }
+
+    /* Markdown Content Container Styling */
+    .markdown-section {
+      max-width: 900px;
+      padding: 35px 50px 45px 50px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+      border: 1px solid #e2e8f0;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      border-bottom: none;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      border-bottom: none;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Premium blockquote/alert formatting */
+    .markdown-section blockquote {
+      border-left: 4px solid #4f46e5;
+      background-color: #f5f3ff;
+      color: #3730a3;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+
+    .markdown-section code {
+      background-color: #f1f5f9;
+      color: #e11d48;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: "Fira Code", Consolas, Monaco, monospace;
+      font-size: 0.9em;
+    }
+
+    .markdown-section pre {
+      background-color: #0f172a;
+      border-radius: 8px;
+      padding: 16px 20px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .markdown-section pre code {
+      background-color: transparent;
+      color: #e2e8f0;
+      padding: 0;
+      font-size: 0.9em;
+    }
+
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f8fafc;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">Cargando documentación de la API...</div>
+  <script>
+    window.$docsify = {
+      name: 'Calculadora Spring',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      homepage: 'README.md',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'Buscar en la documentación...',
+        noData: 'No se encontraron resultados',
+        depth: 6
+      }
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Search plugin -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+</body>
+</html>

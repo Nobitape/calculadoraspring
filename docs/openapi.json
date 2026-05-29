@@ -1,0 +1,128 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Calculadora Spring API",
+    "description": "Una API REST sencilla construida con Spring Boot que proporciona operaciones aritméticas básicas (suma, resta, multiplicación y división). Incluye validaciones para operaciones no válidas como la división por cero.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Soporte de Desarrollo",
+      "email": "soporte@ejemplo.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Servidor de desarrollo local"
+    }
+  ],
+  "paths": {
+    "/calcular": {
+      "post": {
+        "summary": "Realizar un cálculo aritmético",
+        "description": "Procesa dos números y aplica el operador matemático especificado (+, -, *, /), retornando el resultado numérico de punto flotante.",
+        "operationId": "calcular",
+        "requestBody": {
+          "description": "Cuerpo de la petición que contiene los operandos y la operación a ejecutar.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CalculadoraRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cálculo realizado de manera exitosa. Retorna el resultado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double",
+                  "description": "El resultado del cálculo matemático.",
+                  "example": 15.0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Petición inválida. Ocurre cuando se especifica una operación no soportada o se intenta realizar una división por cero.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "Detalle del error de validación.",
+                  "example": "can't divide by zero"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "Detalle del error de validación.",
+                  "example": "Invalid operation"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno no controlado en el servidor.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "Mensaje del error interno del servidor.",
+                  "example": "Generic Error"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "Mensaje del error interno del servidor.",
+                  "example": "Generic Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CalculadoraRequest": {
+        "type": "object",
+        "required": [
+          "operation",
+          "n1",
+          "n2"
+        ],
+        "properties": {
+          "operation": {
+            "type": "string",
+            "description": "Operador aritmético a aplicar en el cálculo.",
+            "enum": [
+              "+",
+              "-",
+              "*",
+              "/"
+            ],
+            "example": "+"
+          },
+          "n1": {
+            "type": "number",
+            "format": "double",
+            "description": "Primer número (operando izquierdo).",
+            "example": 10.0
+          },
+          "n2": {
+            "type": "number",
+            "format": "double",
+            "description": "Segundo número (operando derecho).",
+            "example": 5.0
+          }
+        }
+      }
+    }
+  }
+}

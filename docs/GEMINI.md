@@ -112,4 +112,3 @@ Realiza una operación aritmética entre dos números.
 - 📄 **[CalculadoraspringApplication.java](file:///C:/Users/Alumnos_IBT/calculadoraspring/src/main/java/cl/usm/calculadoraspring/CalculadoraspringApplication.java):** Clase de entrada principal que arranca la aplicación Spring Boot.
 - 📄 **[openapi.yaml](file:///C:/Users/Alumnos_IBT/calculadoraspring/docs/openapi.yaml):** Especificación OpenAPI 3.1.1 en formato YAML para documentación interactiva de la API.
 - 📄 **[openapi.json](file:///C:/Users/Alumnos_IBT/calculadoraspring/docs/openapi.json):** Especificación OpenAPI 3.1.1 en formato JSON para integraciones automatizadas.
-
